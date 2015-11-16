@@ -4,9 +4,15 @@ using System.Collections;
 // enemy関数
 public class Enemy : Token
 {
+	// 生存数
+	public static int Count = 0;
+
 	// 初期化
 	void Start()
 	{
+		// 生存数増加
+		Count++;
+
 		// enemyのサイズ設定
 		SetSize(SpriteWidth / 2, SpriteHeight / 2);
 		// ランダムな方向に移動
@@ -46,6 +52,9 @@ public class Enemy : Token
 	// クリック処理
 	public void OnMouseDown()
 	{
+		// 生存数減少
+		Count--;
+
 		for (int i = 0; i < 32; i++)
 		{
 			Particle.Add(X,Y);
